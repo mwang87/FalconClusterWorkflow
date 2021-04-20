@@ -1,0 +1,1 @@
+wget -P all_data --recursive --no-host-directories --no-directories ftp://massive.ucsd.edu/MSV000084314/updates/2020-09-14_mwang87_13aa328e/peak/MGF/
