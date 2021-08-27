@@ -8,4 +8,4 @@ run_all:
 
 run_nina:
 	rm all_data* || true
-	falcon data/test_data/extracted_nina.mgf all_data --export_representatives --precursor_tol 2 Da --fragment_tol 0.5 --eps 0.10 --work_dir cluster_work --overwrite
+	falcon data/test_data/extracted_nina.mzML clustered_result --export_representatives --precursor_tol 0.05 Da --fragment_tol 0.05 --eps 0.10 --work_dir cluster_work --overwrite
