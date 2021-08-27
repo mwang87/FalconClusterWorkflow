@@ -5,3 +5,7 @@ run_test:
 run_all:
 	rm all_data* || true
 	falcon data/all_data/*.mgf all_data --export_representatives --precursor_tol 2 Da --fragment_tol 0.5 --eps 0.10 --work_dir cluster_work --overwrite
+
+run_nina:
+	rm all_data* || true
+	falcon data/all_data/extracted_nina.mgf.mgf all_data --export_representatives --precursor_tol 2 Da --fragment_tol 0.5 --eps 0.10 --work_dir cluster_work --overwrite
