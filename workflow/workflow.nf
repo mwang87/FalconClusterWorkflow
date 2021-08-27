@@ -33,6 +33,7 @@ process clusterData {
 // Summarizing the output
 process summarizeData {
     echo true
+    cache false
     
     publishDir "$params.publishdir", mode: 'copy'
     
@@ -41,10 +42,11 @@ process summarizeData {
     file cluster_mgf from _cluster_mgf_ch
 
     output:
-    //file "clustered_result*"
+    file "output_summary"
 
     """
-        python $TOOL_FOLDER/summarize_results.py \
+    mkdir output_summary
+    python $TOOL_FOLDER/summarize_results.py \
         $cluster_summary \
         output_summary
     """
