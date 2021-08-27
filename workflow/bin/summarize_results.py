@@ -10,15 +10,13 @@ def main():
     parser.add_argument('output_summary_folder', help='output_summary_folder')
     args = parser.parse_args()
 
-    print(args)
-
     df = pd.read_csv(args.falcon_clusters, sep=',', comment='#')
+    
+    print(args)
     print(df)
     
     fig = px.histogram(df, x="precursor_mz")
     fig.write_image(os.path.join(args.output_summary_folder, "precursor_mz_hist.png"), engine="kaleido")
-
-
 
 if __name__ == "__main__":
     main()
