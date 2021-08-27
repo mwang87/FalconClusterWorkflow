@@ -17,7 +17,7 @@ process clusterData {
 
     output:
     file "clustered_result.csv" into _cluster_summary_ch
-    file "clustered_results.mgf" into _cluster_mgf_ch
+    file "clustered_result.mgf" into _cluster_mgf_ch
 
     """
         falcon  \

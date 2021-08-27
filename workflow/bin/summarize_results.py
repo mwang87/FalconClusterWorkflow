@@ -10,6 +10,9 @@ def main():
 
     print(args)
 
+    df = pd.read_csv(args.falcon_clusters, sep=',', comment='#')
+    print(df)
+
 
 
 if __name__ == "__main__":
