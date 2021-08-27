@@ -50,5 +50,7 @@ def main():
 
     #TODO: Rewriting MGF files
 
+    # TODO: Maybe make this compatible with FBMN, since its already clustered. 
+
 if __name__ == "__main__":
     main()

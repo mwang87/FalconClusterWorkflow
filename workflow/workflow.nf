@@ -13,7 +13,7 @@ process clusterData {
     publishDir "$params.publishdir", mode: 'copy'
     
     input:
-    file(input_spectrum) from _spectra_ch
+    file "input_spectra/*" from _spectra_ch.collect()
 
     output:
     file "clustered_result.csv" into _cluster_info_ch
@@ -21,7 +21,7 @@ process clusterData {
 
     """
         falcon  \
-        $input_spectrum \
+        input_spectra/*.mzML \
         clustered_result --export_representatives \
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
