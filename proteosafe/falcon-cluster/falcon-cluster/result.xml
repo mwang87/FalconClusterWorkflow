@@ -17,11 +17,22 @@
                 <parser type="genericTabular"/>
             </parsers>
         </data>
+
         <row>
-            <column label="View Chromatogram" type="genericurlgenerator" width="5">
-                <parameter name="URLBASE" value="https://gnps-lcms.ucsd.edu"/>
-                <parameter name="REQUESTPARAMETER=usi" value="mzspec:GNPS:TASK-{task}-[_dyn_#filename]"/>
-                <parameter name="LABEL" value="View LCMS Chromatogram (Beta)"/>
+        </row>
+
+        <row expander="image">
+            <column type="jscolumnspectrumviewer" colspan="5" label="Query" width="550" height="350">
+                <parameter name="file" file="workflow_results/clustered_result.mgf"/>
+                <parameter name="scan" value="[_dyn_#scan]"/>
+                <parameter name="compoundname" value="*..*"/>
+            </column>
+        </row>
+        <row expander="USI Links" expandericontype="text">
+            <column label="USI-Spectrum" type="genericurlgenerator" width="3">
+                <parameter name="URLBASE" value="https://metabolomics-usi.ucsd.edu/spectrum/"/>
+                <parameter name="REQUESTPARAMETER=usi" value="mzspec:GNPS:TASK-{task}-workflow_results/clustered_result.mgf:scan:[_dyn_#scan]"/>
+                <parameter name="LABEL" value="Cluster Spectrum USI"/>
             </column>
         </row>
     </block>
@@ -47,7 +58,7 @@
                 <parser type="stream" contentType="text/xml"/>
             </parsers>
         </data>
-        <parameter name="URLBASE" value="/ProteoSAFe/index.jsp?params=%7B%22workflow%22%3A%20%22METABOLOMICS-SNETS-V2%22%2C%20%22spec_on_server%22%3A%20%22t.[task]%2Fworkflow_results%2Fspectra%22%7D"/>
+        <parameter name="URLBASE" value="/ProteoSAFe/index.jsp?params=%7B%22workflow%22%3A%20%22METABOLOMICS-SNETS-V2%22%2C%20%22spec_on_server%22%3A%20%22t.[task]%2Fworkflow_results%2Fclustered_result.mgf%22%7D"/>
     </block>
 
     
