@@ -16,7 +16,7 @@ process clusterData {
     file(input_spectrum) from _spectra_ch
 
     output:
-    file "clustered_result.csv" into _cluster_summary_ch
+    file "clustered_result.csv" into _cluster_info_ch
     file "clustered_result.mgf" into _cluster_mgf_ch
 
     """
@@ -38,7 +38,7 @@ process summarizeData {
     publishDir "$params.publishdir", mode: 'copy'
     
     input:
-    file cluster_summary from _cluster_summary_ch
+    file cluster_summary from _cluster_info_ch
     file cluster_mgf from _cluster_mgf_ch
 
     output:
