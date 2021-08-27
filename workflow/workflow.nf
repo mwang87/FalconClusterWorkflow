@@ -16,7 +16,8 @@ process clusterData {
     file(input_spectrum) from _spectra_ch
 
     output:
-    file "clustered_result*" into _results_ch
+    file "clustered_result.csv" into _cluster_summary_ch
+    file "clustered_results.mgf" into _cluster_mgf_ch
 
     """
         falcon  \
@@ -29,19 +30,22 @@ process clusterData {
     """
 }
 
-// // Summarizing the output
-// process summarizeData {
-//     echo true
+// Summarizing the output
+process summarizeData {
+    echo true
     
-//     publishDir "$params.publishdir", mode: 'copy'
+    publishDir "$params.publishdir", mode: 'copy'
     
-//     input:
-//     input_files from _results_ch
+    input:
+    file cluster_summary from _cluster_summary_ch
+    file cluster_mgf from _cluster_mgf_ch
 
-//     output:
-//     //file "clustered_result*"
+    output:
+    //file "clustered_result*"
 
-//     """
-//         python $TOOL_FOLDER/summarize_results.py
-//     """
-// }
+    """
+        python $TOOL_FOLDER/summarize_results.py \
+        $cluster_summary \
+        output_summary
+    """
+}
