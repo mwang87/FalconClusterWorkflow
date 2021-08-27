@@ -53,7 +53,7 @@
 
             <!-- Mapping Input Files into NextFlow -->
             <arg option="-newparameters" value="publishdir:workflow_results"/>
-            <arg option="-newparameters" value="input:demangled_spectra/**/*.mzML"/>
+            <arg option="-newparameters" value="input:demangled_spectra/"/>
 
             <!-- Mapping Proteosafe param to nextflow params -->
         </execution>
