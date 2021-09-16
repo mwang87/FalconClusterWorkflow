@@ -40,6 +40,21 @@
                 </module>
             </cell>
         </row>
+        <row>
+            <cell>
+                <label>
+                    <content parameter="eps"/>
+                    <tooltip id="eps">
+                        Epsilon, bigger values mean it will cluster more.
+                    </tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="eps">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+        </row>
 
     </block>
 </interface>
