@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 params.input_spectra = '../data/test_data/AH22.mzML'
+params.eps = "0.01"
 
 _spectra_ch = Channel.fromPath( params.input_spectra )
 
@@ -25,7 +26,7 @@ process clusterData {
         clustered_result --export_representatives \
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
-        --eps 0.10 --work_dir cluster_work \
+        --eps $params.eps --work_dir cluster_work \
         --overwrite
     """
 }

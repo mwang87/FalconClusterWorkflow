@@ -19,6 +19,11 @@
             <fileGenerator type="upload" purpose="spectrum" target="spectra"/>
         </parameter>
 
+        <parameter name="eps" label="Clusting EPS">
+			<default value="0.1"/>
+			<validator type="float" minimum="0.05" maximum="0.30"/>
+		</parameter>
+
     </parameters>
 
     <block label="File Selection">
