@@ -44,6 +44,9 @@ def main():
     cluster_summary_df = pd.DataFrame(cluster_summary_list)
     cluster_summary_df.to_csv(os.path.join(args.output_summary_folder, "cluster_summary.tsv"), sep='\t', index=False)
 
+    # creating cluster info
+    clusterinfo_df.to_csv(os.path.join(args.output_summary_folder, "cluster_info.tsv"), sep='\t', index=False)
+
     # Histogram
     fig = px.histogram(cluster_summary_df, x="precursor_mz")
     fig.write_image(os.path.join(args.output_summary_folder, "precursor_mz_hist.png"), engine="kaleido")
