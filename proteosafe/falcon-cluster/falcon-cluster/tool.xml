@@ -56,6 +56,7 @@
             <arg option="-newparameters" value="input_spectra:demangled_spectra/**/*.mzML"/>
 
             <!-- Mapping Proteosafe param to nextflow params -->
+            <arg option="-parametermapping" value="eps:eps"/>
         </execution>
     </tool>
 

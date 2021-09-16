@@ -19,6 +19,11 @@
             <fileGenerator type="upload" purpose="spectrum" target="spectra"/>
         </parameter>
 
+        <parameter name="eps" label="Clusting EPS">
+			<default value="0.1"/>
+			<validator type="float" minimum="0.05" maximum="0.30"/>
+		</parameter>
+
     </parameters>
 
     <block label="File Selection">
@@ -33,6 +38,21 @@
                 <module id="spec_on_server" type="fileSelector">
                     <property name="label">Spectrum Files</property>
                 </module>
+            </cell>
+        </row>
+        <row>
+            <cell>
+                <label>
+                    <content parameter="eps"/>
+                    <tooltip id="eps">
+                        Epsilon, bigger values mean it will cluster more.
+                    </tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="eps">
+                    <attribute name="size" value="3"/>
+                </input>
             </cell>
         </row>
 
