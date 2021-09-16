@@ -31,8 +31,65 @@
         <row expander="USI Links" expandericontype="text">
             <column label="USI-Spectrum" type="genericurlgenerator" width="3">
                 <parameter name="URLBASE" value="https://metabolomics-usi.ucsd.edu/spectrum/"/>
-                <parameter name="REQUESTPARAMETER=usi" value="mzspec:GNPS:TASK-{task}-workflow_results/clustered_result.mgf:scan:[_dyn_#scan]"/>
+                <parameter name="REQUESTPARAMETER=usi1" value="mzspec:GNPS:TASK-{task}-workflow_results/clustered_result.mgf:scan:[_dyn_#scan]"/>
                 <parameter name="LABEL" value="Cluster Spectrum USI"/>
+            </column>
+        </row>
+    </block>
+
+    <view id="view_clusterinfo" label="View Cluster Info">
+        <blockRef id="main" type="view_clusterinfo"/>
+    </view>
+
+    <block id="view_clusterinfo" type="table">
+        <data>
+            <source type="file" name="workflow_results/output_summary/cluster_info.tsv"/>
+            <parsers>
+                <parser type="genericTabular"/>
+            </parsers>
+        </data>
+
+        <row>
+        </row>
+
+        <row expander="image">
+            <column type="jscolumnspectrumviewer" colspan="5" label="Query" width="550" height="350">
+                <parameter name="file" file="workflow_results/clustered_result.mgf"/>
+                <parameter name="scan" value="[_dyn_#cluster]"/>
+                <parameter name="compoundname" value="*..*"/>
+            </column>
+            <column type="jscolumnspectrumviewer" colspan="5" label="Query" width="550" height="350">
+                <parameter name="file" file="spectra/[_dyn_#filename]"/>
+                <parameter name="scan" value="[_dyn_#scan]"/>
+                <parameter name="compoundname" value="*..*"/>
+            </column>
+        </row>
+        <row expander="View Mirror Match" expandericontype="text">
+            <column type="jscolumnspectrumviewer_spectrum_comparison" colspan="5">
+                <parameter name="spectrum1_type" value="flatfile"/>
+                <parameter name="spectrum1_file" file="workflow_results/clustered_result.mgf"/>
+                <parameter name="spectrum1_scan" value="[_dyn_#cluster]"/>
+                <parameter name="spectrum2_type" value="flatfile"/>
+                <parameter name="spectrum2_file" file="spectra/[_dyn_#filename]"/>
+                <parameter name="spectrum2_scan" value="[_dyn_#scan]"/>
+            </column>
+        </row>
+        <row expander="USI Links" expandericontype="text">
+            <column label="USI-Spectrum" type="genericurlgenerator" width="3"> \
+                <parameter name="URLBASE" value="https://metabolomics-usi.ucsd.edu/mirror/"/>\
+                <parameter name="REQUESTPARAMETER=usi1" value="mzspec:GNPS:TASK-{task}-workflow_results/clustered_result.mgf:scan:[_dyn_#cluster]"/>
+                <parameter name="REQUESTPARAMETER=usi2" value="mzspec:GNPS:TASK-{task}-spectra/[_dyn_#filename]:scan:[_dyn_#scan]"/>
+                <parameter name="LABEL" value="Mirror Match USI"/>
+            </column>
+            <column label="USI-Spectrum" type="genericurlgenerator" width="3">
+                <parameter name="URLBASE" value="https://metabolomics-usi.ucsd.edu/spectrum/"/>
+                <parameter name="REQUESTPARAMETER=usi1" value="mzspec:GNPS:TASK-{task}-workflow_results/clustered_result.mgf:scan:[_dyn_#cluster]"/>
+                <parameter name="LABEL" value="Cluster Spectrum USI"/>
+            </column>
+            <column label="USI-Spectrum" type="genericurlgenerator" width="3">
+                <parameter name="URLBASE" value="https://metabolomics-usi.ucsd.edu/spectrum/"/>
+                <parameter name="REQUESTPARAMETER=usi1" value="mzspec:GNPS:TASK-{task}-spectra/[_dyn_#filename]:scan:[_dyn_#scan]"/>
+                <parameter name="LABEL" value="Raw Spectrum USI"/>
             </column>
         </row>
     </block>

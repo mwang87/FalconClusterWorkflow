@@ -22,8 +22,6 @@ def main():
     grouped_cluster_df = clusterinfo_df.groupby(["cluster"])
     cluster_summary_list = []
     for cluster, cluster_group_df in grouped_cluster_df:
-        print(cluster)
-
         #TODO :Read these from mgf, as the representative is a medoid
 
         cluster_count = len(cluster_group_df)
@@ -43,6 +41,11 @@ def main():
     # Creating a cluster summary
     cluster_summary_df = pd.DataFrame(cluster_summary_list)
     cluster_summary_df.to_csv(os.path.join(args.output_summary_folder, "cluster_summary.tsv"), sep='\t', index=False)
+
+    # Creating cluster info
+    clusterinfo_df["filename"] = clusterinfo_df["identifier"].apply(lambda x: x.split(":")[2] + ".mzML")
+    clusterinfo_df["scan"] = clusterinfo_df["identifier"].apply(lambda x: x.split(":")[-1])
+    clusterinfo_df.to_csv(os.path.join(args.output_summary_folder, "cluster_info.tsv"), sep='\t', index=False)
 
     # Histogram
     fig = px.histogram(cluster_summary_df, x="precursor_mz")
