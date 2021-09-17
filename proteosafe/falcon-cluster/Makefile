@@ -12,4 +12,6 @@ indexes are used to efficiently compute a sparse pairwise distance matrix withou
 each other. Finally, density-based clustering is performed to group similar spectra into clusters.<br> \
 <hr> \
 <h4> Citation </h4>\
-<a href='https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/rcm.9153'>Wout Bittremieux, Kris Laukens, William Stafford Noble, Pieter C. Dorrestein. Large-scale tandem mass spectrum clustering using fast nearest neighbor searching. Rapid Communications in Mass Spectrometry, e9153 (2021).</a>"
+<a href='https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/rcm.9153'>Wout Bittremieux, Kris Laukens, William Stafford Noble, Pieter C. Dorrestein. Large-scale tandem mass spectrum clustering using fast nearest neighbor searching. Rapid Communications in Mass Spectrometry, e9153 (2021).</a>\
+<hr>\
+<a href='https://www.nature.com/articles/nbt.3597'>Wang, M., Carver, J. J., Phelan, V. V., Sanchez, L. M., Garg, N., Peng, Y., ... & Bandeira, N. (2016). Sharing and community curation of mass spectrometry data with Global Natural Products Social Molecular Networking. Nature biotechnology, 34(8), 828-837.</a>"
