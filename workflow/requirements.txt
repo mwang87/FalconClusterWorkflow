@@ -1,2 +1,4 @@
 plotly
 kaleido
+falcon-ms
+pandas
