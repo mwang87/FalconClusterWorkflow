@@ -26,6 +26,7 @@ process clusterData {
         clustered_result --export_representatives \
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
+        --min_mz_range 80 \ 
         --eps $params.eps --work_dir cluster_work \
         --overwrite
     """
