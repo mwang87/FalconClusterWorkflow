@@ -5,7 +5,7 @@ On the GNPS side, to get everything set up for this template workflow, need a fe
 Installing Conda Enviornment
 
 ```
-conda create -n falconcluster python=3.9
+conda create -n falconcluster python=3.8
 ```
 
 Installing dependencies
@@ -14,4 +14,6 @@ Installing dependencies
 conda install -n falconcluster -c bioconda nextflow
 conda activate falconcluster 
 pip install -r requirements.txt
+pip install xmltodict
+pip install requests
 ```
