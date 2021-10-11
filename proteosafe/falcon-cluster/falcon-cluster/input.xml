@@ -31,7 +31,9 @@
             <cell>
                 <label>
                     <content parameter="spec_on_server"/>
-                    <tooltip id="hSpectrumFile"/>
+                    <tooltip id="spectrum">
+                        Please use mzML files. 
+                    </tooltip>
                 </label>
             </cell>
             <cell>
