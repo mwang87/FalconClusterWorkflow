@@ -3,7 +3,7 @@ include ../Makefile.deploytemplate
 
 WORKFLOW_NAME=falcon-cluster
 TOOL_FOLDER_NAME=falcon-cluster
-WORKFLOW_VERSION=release_30
+WORKFLOW_VERSION=release_31
 WORKFLOW_DESCRIPTION="<img src="https://github.com/bittremieux/falcon/blob/main/falcon_logo.png?raw=true" width="400"><br>\
 The falcon spectrum clustering tool uses advanced algorithmic techniques for highly efficient processing of millions \
 of MS/MS spectra. First, high-resolution spectra are binned and converted to low-dimensional vectors using feature hashing. \
