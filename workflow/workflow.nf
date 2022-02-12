@@ -2,6 +2,7 @@
 
 params.input_spectra = '../data/test_data/AH22.mzML'
 params.eps = "0.01"
+params.mincluster = "2"
 
 _spectra_ch = Channel.fromPath( params.input_spectra )
 
@@ -27,6 +28,9 @@ process clusterData {
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
         --min_mz_range 80 \
+        --min_mz 0 \
+        --max_mz 2000 \
+        --min_samples $params.mincluster \
         --eps $params.eps --work_dir cluster_work \
         --overwrite
     """
