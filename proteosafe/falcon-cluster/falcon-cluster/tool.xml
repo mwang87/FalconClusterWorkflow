@@ -57,6 +57,7 @@
 
             <!-- Mapping Proteosafe param to nextflow params -->
             <arg option="-parametermapping" value="eps:eps"/>
+            <arg option="-parametermapping" value="mincluster:mincluster"/>
         </execution>
     </tool>
 

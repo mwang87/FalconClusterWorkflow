@@ -24,6 +24,11 @@
 			<validator type="float" minimum="0.05" maximum="0.99"/>
 		</parameter>
 
+        <parameter name="mincluster" label="Minimum Cluster Size">
+			<default value="2"/>
+			<validator type="integer" minimum="1" maximum="10"/>
+		</parameter>
+
     </parameters>
 
     <block label="File Selection">
@@ -58,5 +63,21 @@
             </cell>
         </row>
 
+        <row>
+            <cell>
+                <label>
+                    <content parameter="mincluster"/>
+                    <tooltip id="mincluster">
+                        mincluster
+                    </tooltip>
+                </label>
+            </cell>
+            <cell>
+                <input type="text" parameter="mincluster">
+                    <attribute name="size" value="3"/>
+                </input>
+            </cell>
+        </row>
+        
     </block>
 </interface>
