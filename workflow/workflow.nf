@@ -27,7 +27,7 @@ process clusterData {
         clustered_result --export_representatives \
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
-        --min_mz_range 80 \
+        --min_mz_range 0 \
         --min_mz 0 \
         --max_mz 2000 \
         --min_samples $params.mincluster \
