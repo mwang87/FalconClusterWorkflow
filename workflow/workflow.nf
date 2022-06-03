@@ -4,7 +4,21 @@ params.input_spectra = '../data/test_data/AH22.mzML'
 params.eps = "0.01"
 params.mincluster = "2"
 
-_spectra_ch = Channel.fromPath( params.input_spectra )
+_mzML_ch = Channel.fromPath(params.input_spectra + "/**/*.mzML")
+_mzml_ch = Channel.fromPath(params.input_spectra + "/**/*.mzml")
+_mzXML_ch = Channel.fromPath(params.input_spectra + "/**/*.mzXML")
+_mzxml_ch = Channel.fromPath(params.input_spectra + "/**/*.mzxml")
+_mgf_ch = Channel.fromPath(params.input_spectra + "/**/*.mgf")
+_MGF_ch = Channel.fromPath(params.input_spectra + "/**/*.MGF")
+
+
+_spectra_ch = Channel.empty()
+_spectra_ch = _spectra_ch.concat(_mzXML_ch)
+_spectra_ch = _spectra_ch.concat(_mzxml_ch)
+_spectra_ch = _spectra_ch.concat(_mzML_ch)
+_spectra_ch = _spectra_ch.concat(_mzml_ch)
+_spectra_ch = _spectra_ch.concat(_mgf_ch)
+_spectra_ch = _spectra_ch.concat(_MGF_ch)
 
 TOOL_FOLDER = "$baseDir/bin"
 params.publishdir = "nf_output"
@@ -23,7 +37,7 @@ process clusterData {
 
     """
         falcon  \
-        input_spectra/*.mzML \
+        input_spectra/* \
         clustered_result --export_representatives \
         --precursor_tol 0.05 Da \
         --fragment_tol 0.05 \
